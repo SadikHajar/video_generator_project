@@ -1,72 +1,69 @@
-import os
-import getpass
-from langchain_google_genai import ChatGoogleGenerativeAI
-from dotenv import load_dotenv
-# 🔐 Charger la clé API Google (GEMINI)
-load_dotenv()
 
-# Récupérer la clé API depuis .env
-api_key = os.getenv("GOOGLE_API_KEY")
+from create_video_from_script import create_video_from_script
+from script_generator import ScriptGenerator
+def main():
+    generator = ScriptGenerator()
+    print("🎓 GÉNÉRATEUR DE SCRIPT DE FORMATION IA")
+    print("="*50)
 
-if not api_key:
-    raise ValueError("❌ GOOGLE_API_KEY non trouvée dans le fichier .env")
+    exemples = [
+        "Je veux une formation sur le Machine Learning",
+        "Créer une formation sur la cybersécurité pour débutants",
+        "Formation sur les bases de la programmation Python",
+        "Introduction au marketing digital",
+        "Formation sur la gestion de projet agile"
+    ]
 
-# Utiliser la clé aussi pour GEMINI si nécessaire
+    print("\n📋 Exemples de demandes:")
+    for i, exemple in enumerate(exemples, 1):
+        print(f"   {i}. {exemple}")
 
+    while True:
+        try:
+            user_input = input("\n💬 Entrez votre demande de formation (ou 'quit'): ").strip()
+            if user_input.lower() in ['quit', 'exit', 'q']:
+                print("👋 Au revoir!")
+                break
 
-# 🔧 Configuration du modèle
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-)
+            if not user_input:
+                print("❌ Veuillez entrer une demande valide")
+                continue
 
-# 🧠 Prompt du système
-prompt = """You are a professional video script writer specializing in educational and informative content. Your task is to create detailed video scripts that include both scene descriptions and voice-over narration.
+            script = generator.generate_training_script(user_input)
+            generator.display_script_summary(script)
 
-For each video script you create, follow this structure:
+            save = input("\n💾 Voulez-vous sauvegarder ce script ? (JSON=j, PDF=p, PPT=t, Tous=a, Non=n): ").strip().lower()
 
-<script_format>
-**Scene [Number]: [Scene Title]**
-- **Visual Description**: [Detailed description of what viewers see on screen]
-- **Voice-Over**: [Professional, educational narration that matches the visuals]
-- **Transition**: [How this scene connects to the next scene]
-</script_format>
+            filename_json = None
 
-Your voice-over narration should be:
-- Professional and authoritative
-- Educational and informative
-- Clear and easy to understand
-- Engaging and helpful to the audience
-- Appropriate for the target demographic
+            if save in ['j', 'json']:
+                filename_json = generator.save_script_to_file(script)
+            elif save in ['p', 'pdf']:
+                generator.json_to_pdf(script)
+            elif save in ['t', 'ppt']:
+                generator.json_to_ppt(script)
+            elif save in ['a', 'tous', 'all']:
+                filename_json = generator.save_script_to_file(script)
+                generator.json_to_pdf(script)
+                generator.json_to_ppt(script)
+            elif save not in ['n', 'non', 'no']:
+                print("Option non reconnue. Script non sauvegardé.")
 
-Ensure each scene flows smoothly into the next by:
-- Using transitional phrases in the voice-over
-- Creating visual continuity between scenes
-- Building upon concepts introduced in previous scenes
-- Maintaining consistent tone and pacing throughout
+            # Si JSON sauvegardé, on lance la création vidéo Synthesia
+            if filename_json:
+                print("\n🚀 Lancement de la création vidéo sur Synthesia...")
+                video_url = create_video_from_script(filename_json)
+                if video_url:
+                    print(f"🎬 Vidéo créée avec succès : {video_url}")
+                else:
+                    print("❌ La création vidéo a échoué.")
 
-When writing scene descriptions, be specific about:
-- Camera angles and movements
-- Visual elements (graphics, text overlays, demonstrations)
-- Lighting and setting details
-- Any props or materials shown
+        except KeyboardInterrupt:
+            print("\n👋 Interruption. À bientôt!")
+            break
+        except Exception as e:
+            print(f"❌ Erreur: {e}")
+            print("🔄 Veuillez réessayer")
 
-Please provide a complete script with at least 5-7 scenes that tells a cohesive story or explains a concept thoroughly.
-
-What topic would you like me to create a video script for?
-"""
-
-# 👥 Messages à envoyer au LLM
-messages = [
-    ("system", prompt),
-    ("human", "Machine learning"),
-]
-
-# 🔄 Appel du modèle
-ai_msg = llm.invoke(messages)
-
-# 📤 Affichage du résultat
-print(ai_msg.content)
+if __name__ == "__main__":
+    main()
