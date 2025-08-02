@@ -1,0 +1,116 @@
+{
+  "titre_formation": "Maîtriser les bases de la cybersécurité : Votre bouclier numérique",
+  "description": "Cette formation complète vous initie aux concepts fondamentaux de la cybersécurité, vous permettant de comprendre les menaces et de protéger efficacement vos données personnelles et professionnelles.  Du vocabulaire de base aux meilleures pratiques, vous acquerrez les connaissances nécessaires pour naviguer en toute sécurité dans le monde numérique.",
+  "duree_estimee": "60 minutes",
+  "niveau": "Débutant",
+  "objectifs": [
+    "Comprendre les menaces courantes en cybersécurité",
+    "Identifier les bonnes pratiques pour une navigation sécurisée",
+    "Mettre en place des mesures de protection basiques",
+    "Reconnaître et réagir face à une tentative de phishing"
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Bienvenue dans le monde de la cybersécurité !",
+      "voix_off": "Bonjour à tous et bienvenue dans cette formation sur la cybersécurité ! Dans notre monde de plus en plus digitalisé, la sécurité de nos données est primordiale.  Cette formation est conçue pour vous donner les bases essentielles pour vous protéger des menaces en ligne.  Nous allons explorer ensemble les concepts clés, les risques courants et les meilleures pratiques pour naviguer en toute sécurité sur internet.  Préparez-vous à devenir un utilisateur averti et responsable du numérique !  Ensemble, nous allons démystifier la cybersécurité et vous équiper des connaissances nécessaires pour vous protéger.",
+      "elements_visuels": "Animation introductive avec des icônes représentant la sécurité (bouclier, cadenas) et des éléments de la vie numérique (ordinateur, smartphone).",
+      "points_cles": [
+        "Introduction au concept de cybersécurité",
+        "Importance de la sécurité numérique dans le monde actuel",
+        "Objectifs de la formation"
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Les menaces numériques : Identifier les dangers",
+      "voix_off": "Commençons par identifier les principales menaces numériques.  Le phishing, technique d'hameçonnage visant à obtenir vos informations personnelles, est un danger majeur.  Les logiciels malveillants, ou malwares, peuvent infecter vos appareils et voler vos données.  Les ransomwares chiffrent vos fichiers et demandent une rançon pour leur libération.  Les attaques par déni de service (DoS) rendent un site web inaccessible. Enfin, le vol d'identité utilise vos informations pour commettre des fraudes.  Il est crucial de connaître ces menaces pour mieux s'en protéger.",
+      "elements_visuels": "Images illustrant chaque menace : email de phishing, icône de virus, cadenas cassé, écran d'ordinateur bloqué, empreinte digitale.",
+      "points_cles": [
+        "Phishing",
+        "Malwares (virus, ransomwares)",
+        "Attaques DoS",
+        "Vol d'identité"
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Mots de passe forts : Votre première ligne de défense",
+      "voix_off": "Un mot de passe fort est essentiel pour protéger vos comptes.  Évitez les mots de passe évidents comme votre date de naissance ou le nom de votre animal.  Utilisez des mots de passe longs, complexes, combinant majuscules, minuscules, chiffres et symboles.  N'utilisez pas le même mot de passe pour tous vos comptes.  Considérez l'utilisation d'un gestionnaire de mots de passe pour simplifier la gestion de vos identifiants.  Changer régulièrement vos mots de passe est également une bonne pratique.",
+      "elements_visuels": "Exemple de mot de passe faible vs. mot de passe fort, icône de gestionnaire de mots de passe.",
+      "points_cles": [
+        "Importance des mots de passe forts",
+        "Conseils pour créer un mot de passe robuste",
+        "Utilisation d'un gestionnaire de mots de passe",
+        "Changement régulier des mots de passe"
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Navigation sécurisée : Protéger votre ordinateur",
+      "voix_off": "Naviguer en toute sécurité sur internet nécessite de la vigilance.  Soyez méfiant envers les liens suspects et les emails non sollicités.  Vérifiez l'adresse du site web avant de saisir vos informations personnelles.  Assurez-vous que votre navigateur et votre système d'exploitation sont à jour avec les dernières mises à jour de sécurité.  Installez un logiciel antivirus et un pare-feu pour protéger votre ordinateur contre les menaces.",
+      "elements_visuels": "Exemple de lien suspect, icône de navigateur web, icône d'antivirus, illustration de pare-feu.",
+      "points_cles": [
+        "Vigilance face aux liens suspects",
+        "Vérification des adresses web",
+        "Mises à jour régulières du système",
+        "Installation d'un antivirus et d'un pare-feu"
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "Le phishing : Reconnaître et éviter les pièges",
+      "voix_off": "Le phishing est une technique courante utilisée par les cybercriminels.  Ils envoient des emails ou des messages frauduleux imitant des institutions légitimes (banques, administrations...) pour vous inciter à divulguer vos informations personnelles.  Apprenez à identifier les signes d'un email de phishing :  orthographe incorrecte, liens suspects, demande d'informations personnelles urgentes et non sollicitées.  Ne cliquez jamais sur les liens suspects et ne répondez jamais aux emails suspects.",
+      "elements_visuels": "Exemples d'emails de phishing, zoom sur les détails suspects (adresse email, liens, orthographe).",
+      "points_cles": [
+        "Définition du phishing",
+        "Identification des signes d'un email de phishing",
+        "Réactions appropriées face à un email suspect"
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Les logiciels malveillants : Se protéger des infections",
+      "voix_off": "Les logiciels malveillants, ou malwares, sont des programmes conçus pour endommager votre système ou voler vos données.  Pour vous protéger, installez un logiciel antivirus fiable et maintenez-le à jour.  Évitez de télécharger des fichiers provenant de sources inconnues.  Soyez prudent lorsque vous ouvrez des pièces jointes dans vos emails.  Faites régulièrement des sauvegardes de vos données pour limiter les pertes en cas d'infection.",
+      "elements_visuels": "Différents types de malwares (virus, vers, chevaux de Troie), icône d'antivirus en action.",
+      "points_cles": [
+        "Définition des malwares",
+        "Prévention des infections",
+        "Importance des sauvegardes"
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Les réseaux Wi-Fi publics : Prudence et sécurité",
+      "voix_off": "L'utilisation de réseaux Wi-Fi publics présente des risques pour la sécurité de vos données.  Évitez d'effectuer des transactions financières ou d'accéder à des informations sensibles sur ces réseaux.  Utilisez un VPN (réseau privé virtuel) pour chiffrer votre connexion et protéger vos données.  Vérifiez la sécurité du réseau avant de vous connecter et privilégiez les réseaux protégés par mot de passe.",
+      "elements_visuels": "Illustration d'un réseau Wi-Fi public, icône de VPN.",
+      "points_cles": [
+        "Risques liés aux réseaux Wi-Fi publics",
+        "Utilisation d'un VPN",
+        "Conseils pour se connecter en toute sécurité"
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Mise en pratique : Scénario de phishing",
+      "voix_off": "Maintenant, mettons en pratique vos connaissances.  Nous allons vous présenter un scénario de phishing et vous devrez identifier les éléments suspects.  Observez attentivement l'email et essayez de repérer les indices qui pourraient indiquer une tentative d'hameçonnage.  Après l'analyse, nous discuterons des éléments clés à prendre en compte pour éviter de tomber dans ce type de piège.",
+      "elements_visuels": "Un exemple concret d'email de phishing à analyser, points à identifier sur l'email.",
+      "points_cles": [
+        "Analyse d'un cas concret de phishing",
+        "Identification des éléments suspects",
+        "Application des connaissances acquises"
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Conclusion et prochaines étapes",
+      "voix_off": "Félicitations ! Vous avez maintenant une bonne compréhension des bases de la cybersécurité.  N'oubliez pas que la sécurité numérique est un processus continu.  Restez vigilants, tenez-vous informés des nouvelles menaces et mettez régulièrement à jour vos pratiques de sécurité.  Pour approfondir vos connaissances, vous pouvez consulter des ressources en ligne spécialisées ou suivre des formations plus avancées.  Soyez acteur de votre propre sécurité numérique !",
+      "elements_visuels": "Images de synthèse récapitulatives des points clés de la formation.",
+      "points_cles": [
+        "Récapitulatif des points clés",
+        "Conseils pour maintenir une bonne sécurité numérique",
+        "Ressources pour approfondir ses connaissances"
+      ]
+    }
+  ]
+}
