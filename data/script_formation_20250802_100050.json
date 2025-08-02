@@ -1,0 +1,122 @@
+{
+  "titre_formation": "Maîtriser Docker : De l'installation au déploiement d'applications",
+  "description": "Cette formation complète vous permettra de maîtriser Docker, de son installation à la gestion de conteneurs complexes.  Vous apprendrez à construire, déployer et orchestrer vos applications dans des environnements de développement et de production.  Des exercices pratiques vous permettront de consolider vos connaissances et de développer vos compétences.",
+  "objectifs": [
+    "Comprendre les concepts fondamentaux de Docker.",
+    "Maîtriser la création et la gestion des images Docker.",
+    "Déployer et orchestrer des applications avec Docker Compose.",
+    "Résoudre les problèmes courants liés à Docker."
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Introduction à Docker : Pourquoi et comment ?",
+      "voix_off": "Bienvenue dans cette formation Docker !  Aujourd'hui, nous allons explorer ce puissant outil qui révolutionne le développement et le déploiement d'applications.  Imaginez un monde où vos applications fonctionnent de manière identique, quel que soit l'environnement.  Docker rend cela possible grâce à la conteneurisation.  Nous verrons comment Docker isole vos applications et leurs dépendances, garantissant la portabilité et la reproductibilité.  Nous aborderons les concepts clés : images, conteneurs, registres, et explorerons les avantages de Docker pour les développeurs, les équipes DevOps et les entreprises. Préparez-vous à un voyage passionnant dans l'univers de la conteneurisation !",
+      "elements_visuels": "Animation introductive montrant une application s'exécutant dans différents environnements (Windows, Linux, Mac) sans problème grâce à Docker. Logo Docker.",
+      "points_cles": [
+        "Comprendre le concept de conteneurisation.",
+        "Identifier les avantages de l'utilisation de Docker.",
+        "Connaître les termes clés : image, conteneur, registre."
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Installation et configuration de Docker",
+      "voix_off": "Dans cette section, nous allons installer Docker sur votre système d'exploitation.  Que vous utilisiez Windows, macOS ou Linux, le processus est relativement simple. Nous allons vous guider étape par étape, en vous montrant les commandes nécessaires et en vous expliquant les différents paramètres de configuration.  Nous aborderons également la gestion des utilisateurs et des privilèges pour sécuriser votre environnement Docker.  N'hésitez pas à suivre les instructions à l'écran et à poser des questions si vous rencontrez des difficultés.  Une installation correcte est la base d'une utilisation efficace de Docker.",
+      "elements_visuels": "Captures d'écran des étapes d'installation sur différents systèmes d'exploitation (Windows, macOS, Linux).  Instructions textuelles claires.",
+      "points_cles": [
+        "Installer Docker sur différents systèmes d'exploitation.",
+        "Configurer les paramètres de Docker.",
+        "Comprendre la gestion des utilisateurs et des privilèges."
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Création et gestion d'images Docker",
+      "voix_off": "Maintenant que Docker est installé, apprenons à créer nos propres images.  Nous allons explorer le Dockerfile, ce fichier essentiel qui décrit les instructions pour construire une image.  Nous verrons comment spécifier la base, les dépendances, les commandes d'installation et les instructions d'exécution.  Nous aborderons également les meilleures pratiques pour créer des images légères et efficaces.  Enfin, nous apprendrons à gérer les images : les lister, les supprimer et à les taguer pour une meilleure organisation.",
+      "elements_visuels": "Exemple de Dockerfile, schémas illustrant les couches d'une image, exemples de commandes Docker pour gérer les images.",
+      "points_cles": [
+        "Créer un Dockerfile.",
+        "Construire une image Docker.",
+        "Gérer les images Docker (lister, supprimer, taguer)."
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Exécution et gestion de conteneurs Docker",
+      "voix_off": "Une image Docker est un modèle, un conteneur est une instance de cette image.  Dans cette section, nous allons apprendre à exécuter des conteneurs à partir d'images, à configurer les ports, les volumes et les variables d'environnement.  Nous verrons comment interagir avec les conteneurs, les démarrer, les arrêter, les redémarrer et les supprimer.  Nous explorerons également les commandes essentielles pour surveiller l'état et les logs des conteneurs.  La maîtrise des conteneurs est fondamentale pour l'utilisation efficace de Docker.",
+      "elements_visuels": "Schéma illustrant le cycle de vie d'un conteneur, exemples de commandes Docker pour gérer les conteneurs, exemples de configuration de ports et de volumes.",
+      "points_cles": [
+        "Exécuter un conteneur à partir d'une image.",
+        "Configurer les ports, les volumes et les variables d'environnement.",
+        "Gérer le cycle de vie d'un conteneur (démarrer, arrêter, supprimer)."
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "Docker Compose : Orchestration d'applications multi-conteneurs",
+      "voix_off": "Les applications modernes sont souvent composées de plusieurs services interagissant entre eux.  Docker Compose simplifie la gestion de ces applications multi-conteneurs.  Nous allons apprendre à définir un fichier docker-compose.yml pour décrire les différents services, leurs dépendances et leur configuration.  Nous verrons comment démarrer, arrêter et gérer l'ensemble de l'application avec une seule commande.  Docker Compose est un outil indispensable pour simplifier le déploiement et la gestion d'applications complexes.",
+      "elements_visuels": "Exemple de fichier docker-compose.yml, schéma illustrant une application multi-conteneurs, exemples de commandes Docker Compose.",
+      "points_cles": [
+        "Définir un fichier docker-compose.yml.",
+        "Déployer une application multi-conteneurs avec Docker Compose.",
+        "Gérer une application multi-conteneurs avec Docker Compose."
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Docker Hub et les registres privés",
+      "voix_off": "Docker Hub est un registre public d'images Docker, mais pour des raisons de sécurité et de contrôle, les registres privés sont souvent nécessaires.  Nous allons explorer comment publier et partager vos images sur Docker Hub, et comment configurer un registre privé pour vos applications internes.  Nous verrons les avantages et les inconvénients de chaque approche et comment choisir la solution la plus adaptée à vos besoins.  La gestion des images est un aspect crucial de la gestion de vos applications.",
+      "elements_visuels": "Interface de Docker Hub, exemple de configuration d'un registre privé, comparaison des avantages et inconvénients des registres publics et privés.",
+      "points_cles": [
+        "Publier une image sur Docker Hub.",
+        "Configurer un registre privé.",
+        "Choisir entre un registre public et un registre privé."
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Gestion des réseaux Docker",
+      "voix_off": "Pour une communication efficace entre les conteneurs, la gestion des réseaux est essentielle.  Nous allons explorer les différents types de réseaux Docker et comment les configurer pour permettre à vos conteneurs de communiquer entre eux, ainsi qu'avec le monde extérieur.  Nous verrons comment créer des réseaux personnalisés et comment gérer les règles de routage.  Une bonne compréhension des réseaux Docker est indispensable pour le déploiement d'applications distribuées.",
+      "elements_visuels": "Schéma illustrant les différents types de réseaux Docker, exemples de configuration de réseaux, exemples de règles de routage.",
+      "points_cles": [
+        "Comprendre les différents types de réseaux Docker.",
+        "Configurer les réseaux Docker pour la communication entre conteneurs.",
+        "Gérer les règles de routage."
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Débogage et résolution des problèmes",
+      "voix_off": "Même avec une bonne compréhension de Docker, vous pourriez rencontrer des problèmes.  Dans cette section, nous allons explorer les techniques de débogage courantes et les solutions aux problèmes fréquemment rencontrés.  Nous verrons comment inspecter les conteneurs, analyser les logs, et utiliser les outils de diagnostic pour identifier et résoudre les erreurs.  Apprendre à déboguer est une compétence essentielle pour tout utilisateur de Docker.",
+      "elements_visuels": "Exemples de messages d'erreur courants, exemples de commandes de débogage, techniques d'inspection de conteneurs.",
+      "points_cles": [
+        "Inspecter les conteneurs pour identifier les erreurs.",
+        "Analyser les logs des conteneurs.",
+        "Utiliser les outils de diagnostic pour résoudre les problèmes."
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Applications pratiques : Déploiement d'une application web simple",
+      "voix_off": "Pour mettre en pratique vos connaissances, nous allons déployer une application web simple à l'aide de Docker.  Nous allons créer une image Docker pour l'application, la déployer dans un conteneur, et la rendre accessible depuis votre navigateur.  Ce projet pratique vous permettra de consolider vos compétences et de voir comment Docker peut être utilisé dans un scénario réel.  Suivez les étapes, et n'hésitez pas à expérimenter et à adapter l'application à vos propres besoins.",
+      "elements_visuels": "Code source de l'application web, étapes de création de l'image Docker, capture d'écran de l'application web fonctionnant dans un conteneur.",
+      "points_cles": [
+        "Créer une image Docker pour une application web.",
+        "Déployer l'application web dans un conteneur.",
+        "Rendre l'application web accessible depuis un navigateur."
+      ]
+    },
+    {
+      "numero": 10,
+      "titre": "Conclusion et perspectives : Aller plus loin avec Docker",
+      "voix_off": "Félicitations ! Vous avez maintenant une solide compréhension de Docker et de ses fonctionnalités clés.  Cette formation vous a fourni les bases nécessaires pour construire, déployer et gérer vos applications avec Docker.  Nous avons couvert les aspects fondamentaux, les concepts intermédiaires et quelques notions avancées.  Pour aller plus loin, vous pouvez explorer des outils comme Kubernetes pour l'orchestration à grande échelle, ou vous spécialiser dans des aspects plus pointus de Docker comme la sécurité et la performance.  N'hésitez pas à continuer à apprendre et à expérimenter avec Docker pour maîtriser pleinement son potentiel.",
+      "elements_visuels": "Ressources supplémentaires (liens vers la documentation Docker, tutoriels, etc.), logo Docker.",
+      "points_cles": [
+        "Révision des concepts clés abordés.",
+        "Ressources supplémentaires pour continuer l'apprentissage.",
+        "Perspectives d'avenir avec Docker et les technologies associées."
+      ]
+    }
+  ]
+}

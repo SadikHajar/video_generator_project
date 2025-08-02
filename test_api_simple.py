@@ -3,7 +3,7 @@ import requests
 # Test de la clé API Synthesia
 API_KEY = "b1c90bfd864ac688bf63ec3b266ad044"
 HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
+    "Authorization": f"{API_KEY}",
     "Accept": "application/json"
 }
 

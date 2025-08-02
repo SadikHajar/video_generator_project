@@ -1,0 +1,122 @@
+{
+  "titre_formation": "Maîtrisez le Projet Agile : De Scrum à Kanban et au-delà",
+  "description": "Cette formation complète vous immerge dans l'univers de la gestion de projet agile, des fondamentaux de Scrum et Kanban aux techniques avancées pour optimiser vos projets.  Vous apprendrez à appliquer ces méthodologies dans des contextes variés et à surmonter les défis courants.",
+  "objectifs": [
+    "Comprendre les principes fondamentaux de la gestion de projet agile.",
+    "Maîtriser les méthodologies Scrum et Kanban.",
+    "Appliquer les techniques agiles à différents types de projets.",
+    "Résoudre les problèmes courants rencontrés lors de l'implémentation d'une approche agile."
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Bienvenue dans le monde Agile : Introduction et Contexte",
+      "voix_off": "Bienvenue ! Dans cette formation, nous allons explorer le monde passionnant de la gestion de projet agile.  Nous verrons pourquoi les méthodes agiles sont devenues incontournables, leurs avantages par rapport aux méthodes traditionnelles en cascade, et comment elles s'adaptent à différents contextes. Nous aborderons les concepts clés comme l'itération, l'adaptation, la collaboration et la valeur client.  Préparez-vous à un voyage captivant vers une gestion de projet plus efficace et plus collaborative !",
+      "elements_visuels": "Image d'une équipe travaillant collaborativement autour d'un tableau Kanban, animation montrant la différence entre une approche en cascade et une approche agile.",
+      "points_cles": [
+        "Définition de la gestion de projet agile",
+        "Avantages de l'approche agile par rapport aux méthodes traditionnelles",
+        "Concepts clés de l'agilité : itération, adaptation, collaboration"
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Scrum : Les Bases Fondamentales",
+      "voix_off": "Découvrons Scrum, la méthodologie agile la plus populaire. Nous allons explorer les rôles clés (Product Owner, Scrum Master, Développeur), les événements (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) et les artefacts (Product Backlog, Sprint Backlog, Incrément).  Nous verrons comment ces éléments interagissent pour créer un processus itératif et incrémental, axé sur la livraison de valeur.",
+      "elements_visuels": "Schéma du cycle de vie d'un sprint Scrum, images représentant les différents rôles dans une équipe Scrum, exemples de Product Backlog et Sprint Backlog.",
+      "points_cles": [
+        "Rôles clés dans Scrum",
+        "Événements clés du processus Scrum",
+        "Artefacts Scrum et leur importance"
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Kanban : Visualiser et Optimiser le Flux de Travail",
+      "voix_off": "Passons maintenant à Kanban, une méthode agile plus flexible que Scrum. Nous allons étudier le tableau Kanban, les limites de travail (WIP), et comment visualiser le flux de travail pour identifier les goulots d'étranglement et améliorer l'efficacité.  Nous verrons comment Kanban peut être utilisé seul ou en complément de Scrum.",
+      "elements_visuels": "Exemples de tableaux Kanban différents, animation montrant le flux de travail sur un tableau Kanban, explication des limites de travail (WIP).",
+      "points_cles": [
+        "Principes fondamentaux de Kanban",
+        "Utilisation du tableau Kanban et visualisation du flux de travail",
+        "Gestion des limites de travail (WIP)"
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Estimation Agile : Prévoir et Gérer les Efforts",
+      "voix_off": "L'estimation est cruciale en agile. Nous explorerons des techniques d'estimation comme la planification de poker, les points d'histoire et la méthode du t-shirt. Nous verrons comment choisir la méthode la plus appropriée en fonction du contexte du projet et comment gérer les imprévus.",
+      "elements_visuels": "Exemple de session de planification de poker, explication des points d'histoire, tableau comparant les différentes méthodes d'estimation.",
+      "points_cles": [
+        "Techniques d'estimation agile (Planning Poker, points d'histoire, etc.)",
+        "Choisir la bonne technique d'estimation selon le contexte",
+        "Gestion des imprévus et des estimations imprécises"
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "Gestion des Risques et des Imprévus en Agile",
+      "voix_off": "Aucun projet n'est exempt de risques. Nous verrons comment identifier, analyser et atténuer les risques dans un contexte agile.  Nous aborderons les techniques de gestion des risques spécifiques à l'agilité, comme l'utilisation du backlog de produit pour intégrer des éléments de mitigation.",
+      "elements_visuels": "Matrice de risque, exemples de plans de mitigation, exemples d'intégration des éléments de mitigation dans le backlog.",
+      "points_cles": [
+        "Identification et analyse des risques",
+        "Techniques d'atténuation des risques en contexte agile",
+        "Intégration de la gestion des risques dans le processus itératif"
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Les Métriques Agiles : Suivre les Performances",
+      "voix_off": "Le suivi des performances est essentiel pour l'amélioration continue. Nous explorerons les métriques agiles clés, comme la vélocité, le cycle time et le lead time.  Nous verrons comment interpréter ces métriques pour identifier les axes d'amélioration et optimiser le processus.",
+      "elements_visuels": "Exemples de tableaux de bord de suivi des métriques agiles, graphiques illustrant la vélocité, le cycle time et le lead time.",
+      "points_cles": [
+        "Métriques agiles clés (Vélocité, Cycle Time, Lead Time)",
+        "Interprétation des métriques et identification des axes d'amélioration",
+        "Utilisation des données pour l'amélioration continue"
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Agile et les Différents Types de Projets",
+      "voix_off": "L'agilité s'adapte à différents types de projets. Nous explorerons comment adapter les méthodes Scrum et Kanban à des projets de tailles et de complexités différentes, des petits projets aux grands programmes. Nous verrons les ajustements nécessaires pour chaque contexte.",
+      "elements_visuels": "Exemples d'adaptation de Scrum et Kanban à différents types de projets (petits projets, grands programmes, projets complexes).",
+      "points_cles": [
+        "Adaptation de Scrum à différents contextes",
+        "Adaptation de Kanban à différents contextes",
+        "Choisir la méthodologie agile la plus appropriée selon le projet"
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Mise en Pratique : Exercices et Études de Cas",
+      "voix_off": "Il est temps de mettre en pratique vos nouvelles connaissances !  Nous allons réaliser des exercices pratiques et analyser des études de cas réels pour consolider vos compétences.  Vous aurez l'occasion d'appliquer les concepts appris et de résoudre des problèmes concrets liés à la gestion de projet agile.",
+      "elements_visuels": "Exemples d'exercices pratiques, études de cas avec solutions détaillées.",
+      "points_cles": [
+        "Application pratique des concepts appris",
+        "Résolution de problèmes concrets",
+        "Consolidation des compétences acquises"
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Surmonter les Défis de l'Agile : Gestion des Difficultés",
+      "voix_off": "L'implémentation de méthodes agiles peut présenter des défis. Nous allons examiner les difficultés courantes, comme la résistance au changement, la difficulté à estimer précisément, ou la gestion des dépendances entre équipes.  Nous verrons des stratégies pour surmonter ces obstacles et assurer le succès de votre transition vers l'agilité.",
+      "elements_visuels": "Exemples de défis courants en agile, solutions et stratégies pour les surmonter.",
+      "points_cles": [
+        "Défis courants lors de l'implémentation de l'agile",
+        "Stratégies pour surmonter la résistance au changement",
+        "Gestion des dépendances entre équipes"
+      ]
+    },
+    {
+      "numero": 10,
+      "titre": "Conclusion et Perspectives : L'Avenir de l'Agile",
+      "voix_off": "Félicitations ! Vous avez terminé cette formation sur la gestion de projet agile.  Vous disposez désormais des connaissances et des compétences nécessaires pour appliquer efficacement les méthodes agiles à vos projets.  Nous aborderons les tendances futures de l'agilité et les perspectives d'évolution de ces méthodes.",
+      "elements_visuels": "Aperçu des tendances futures de l'agilité, ressources supplémentaires.",
+      "points_cles": [
+        "Recapitulatif des concepts clés",
+        "Ressources supplémentaires pour approfondir vos connaissances",
+        "Tendances futures de l'agilité"
+      ]
+    }
+  ]
+}

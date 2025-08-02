@@ -1,0 +1,134 @@
+{
+  "titre_formation": "Maîtrisez Python : De Débutant à Développeur",
+  "description": "Cette formation complète vous guidera à travers les bases de la programmation Python, des concepts fondamentaux aux applications pratiques.  Que vous soyez un novice en programmation ou que vous souhaitiez améliorer vos compétences en Python, ce cours vous apportera les connaissances et les outils nécessaires pour réussir.",
+  "objectifs": [
+    "Comprendre les concepts fondamentaux de la programmation Python.",
+    "Maîtriser la syntaxe et la structure du langage Python.",
+    "Utiliser les structures de données de base (listes, dictionnaires, tuples).",
+    "Développer des programmes Python simples et fonctionnels."
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Bienvenue dans le monde de Python !",
+      "voix_off": "Bienvenue à cette formation sur les bases de Python ! Python est un langage de programmation puissant, polyvalent et facile à apprendre, utilisé dans de nombreux domaines, du développement web à la science des données.  Au cours de cette formation, nous explorerons les fondamentaux du langage, de l'installation à la création de vos premiers programmes.  Préparez-vous à découvrir un langage qui vous ouvrira des portes vers le monde fascinant de la programmation ! Nous commencerons par l'installation de Python sur votre système et la configuration de votre environnement de développement. N'hésitez pas à poser vos questions tout au long de la formation.",
+      "elements_visuels": "Logo Python, interface d'installation Python, différents IDE (PyCharm, VS Code, Thonny).",
+      "points_cles": [
+        "Installation de Python",
+        "Choix d'un IDE",
+        "Premiers pas avec l'interpréteur Python"
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Variables et Types de Données",
+      "voix_off": "Dans cette section, nous allons explorer les variables et les types de données en Python. Une variable est un conteneur qui stocke des données.  Python est un langage dynamiquement typé, ce qui signifie que vous n'avez pas besoin de déclarer explicitement le type d'une variable.  Nous verrons les types de données les plus courants : les entiers (int), les nombres à virgule flottante (float), les chaînes de caractères (str), et les booléens (bool). Nous aborderons aussi les opérations de base sur ces types de données : affectation, addition, soustraction, multiplication, division, etc.",
+      "elements_visuels": "Exemples de code illustrant les différents types de données et les opérations de base, tableau récapitulatif des types de données.",
+      "points_cles": [
+        "Définition des variables",
+        "Types de données (int, float, str, bool)",
+        "Opérations arithmétiques et affectation"
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Opérateurs et Structures de Contrôle",
+      "voix_off": "Maintenant, plongeons-nous dans les opérateurs et les structures de contrôle.  Les opérateurs permettent d'effectuer des opérations sur les variables, comme la comparaison (==, !=, <, >, <=, >=) et les opérations logiques (and, or, not).  Les structures de contrôle permettent de contrôler le flux d'exécution d'un programme. Nous étudierons les instructions conditionnelles (if, elif, else) et les boucles (for, while). Ces structures sont essentielles pour créer des programmes dynamiques et réactifs.",
+      "elements_visuels": "Diagrammes de flux illustrant les instructions conditionnelles et les boucles, exemples de code avec différents opérateurs et structures de contrôle.",
+      "points_cles": [
+        "Opérateurs arithmétiques, logiques et de comparaison",
+        "Instructions conditionnelles (if, elif, else)",
+        "Boucles (for, while)"
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Les Listes : Manipulation de données",
+      "voix_off": "Les listes sont des structures de données fondamentales en Python.  Elles permettent de stocker une collection ordonnée d'éléments de différents types.  Nous verrons comment créer, accéder, modifier et manipuler des listes.  Nous explorerons des méthodes importantes comme l'ajout d'éléments (append, insert), la suppression d'éléments (remove, pop), le tri (sort), et bien d'autres.  La maîtrise des listes est essentielle pour la gestion efficace des données dans vos programmes.",
+      "elements_visuels": "Représentation visuelle d'une liste, exemples de code illustrant les différentes méthodes de manipulation de listes.",
+      "points_cles": [
+        "Création et initialisation de listes",
+        "Accès aux éléments d'une liste",
+        "Méthodes de manipulation de listes (append, insert, remove, pop, sort)"
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "Dictionnaires : Organisation des données",
+      "voix_off": "Les dictionnaires sont une autre structure de données clé en Python.  Contrairement aux listes, les dictionnaires stockent des données sous forme de paires clé-valeur.  Chaque clé est unique et permet d'accéder rapidement à la valeur associée.  Nous verrons comment créer, accéder, modifier et supprimer des éléments dans un dictionnaire.  Les dictionnaires sont particulièrement utiles pour représenter des données structurées, comme des informations sur un utilisateur ou des données provenant d'une base de données.",
+      "elements_visuels": "Représentation visuelle d'un dictionnaire, exemples de code illustrant l'accès et la modification des éléments d'un dictionnaire.",
+      "points_cles": [
+        "Création et initialisation de dictionnaires",
+        "Accès aux éléments via les clés",
+        "Ajout, modification et suppression d'éléments"
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Les Tuples : Données Immuables",
+      "voix_off": "Les tuples sont similaires aux listes, mais ils sont immuables, c'est-à-dire qu'une fois créés, leurs éléments ne peuvent plus être modifiés.  Cette propriété les rend utiles pour représenter des données qui ne doivent pas être altérées.  Nous verrons comment créer et accéder aux éléments d'un tuple, et nous explorerons les différences clés entre les tuples, les listes et les dictionnaires.",
+      "elements_visuels": "Comparaison des listes, tuples et dictionnaires, exemples de code illustrant la création et l'accès aux éléments d'un tuple.",
+      "points_cles": [
+        "Création et initialisation de tuples",
+        "Accès aux éléments d'un tuple",
+        "Immuabilité des tuples"
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Fonctions : Modularité et Réutilisabilité",
+      "voix_off": "Les fonctions sont des blocs de code réutilisables qui effectuent une tâche spécifique.  Elles permettent d'améliorer la lisibilité, la modularité et la réutilisabilité de votre code.  Nous verrons comment définir, appeler et utiliser des fonctions, ainsi que les concepts importants de paramètres, de valeurs de retour et de portée des variables.",
+      "elements_visuels": "Exemples de code illustrant la définition et l'appel de fonctions, diagramme illustrant la portée des variables.",
+      "points_cles": [
+        "Définition de fonctions",
+        "Paramètres et arguments",
+        "Valeurs de retour",
+        "Portée des variables"
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Modules et Packages : Extension des fonctionnalités",
+      "voix_off": "Python possède une vaste bibliothèque de modules et de packages qui étendent ses fonctionnalités.  Nous verrons comment importer et utiliser des modules pour accéder à des fonctions et des classes supplémentaires.  Nous explorerons quelques modules importants comme le module `math` pour les opérations mathématiques, le module `random` pour la génération de nombres aléatoires, et le module `os` pour l'interaction avec le système d'exploitation.",
+      "elements_visuels": "Exemples de code illustrant l'importation et l'utilisation de modules, documentation de quelques modules importants.",
+      "points_cles": [
+        "Importation de modules",
+        "Utilisation de fonctions et de classes de modules",
+        "Exemples d'utilisation de modules courants (math, random, os)"
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Gestion des Exceptions",
+      "voix_off": "La gestion des exceptions est essentielle pour créer des programmes robustes et fiables.  Les exceptions sont des erreurs qui peuvent survenir pendant l'exécution d'un programme.  Nous verrons comment utiliser les instructions `try`, `except` et `finally` pour gérer les exceptions et éviter que votre programme ne plante.",
+      "elements_visuels": "Exemples de code illustrant la gestion des exceptions avec try, except et finally.",
+      "points_cles": [
+        "Instructions try, except, finally",
+        "Types d'exceptions courantes",
+        "Gestion des erreurs"
+      ]
+    },
+    {
+      "numero": 10,
+      "titre": "Projet Pratique : Création d'un jeu simple",
+      "voix_off": "Pour mettre en pratique vos nouvelles compétences, nous allons créer un jeu simple en Python.  Ce projet vous permettra de consolider vos connaissances et de voir comment les concepts que nous avons appris s'appliquent dans un contexte réel.  Nous suivrons les étapes de développement, de la conception à l'implémentation, en utilisant les structures de données et les fonctions que nous avons étudiées.",
+      "elements_visuels": "Étapes de développement du jeu, code source du jeu.",
+      "points_cles": [
+        "Conception du jeu",
+        "Implémentation du jeu",
+        "Test et débogage"
+      ]
+    },
+    {
+      "numero": 11,
+      "titre": "Conclusion et Ressources Supplémentaires",
+      "voix_off": "Félicitations ! Vous avez terminé cette formation sur les bases de Python.  Vous avez acquis les compétences de base pour commencer à programmer en Python.  N'oubliez pas que la pratique régulière est essentielle pour améliorer vos compétences.  Nous vous encourageons à explorer les ressources supplémentaires que nous vous fournissons, notamment des liens vers des tutoriels, des documents et des communautés en ligne.  Continuez à apprendre, à expérimenter et à créer des programmes innovants !",
+      "elements_visuels": "Liste de ressources supplémentaires (liens vers des tutoriels, documentation, communautés en ligne).",
+      "points_cles": [
+        "Révision des concepts clés",
+        "Ressources supplémentaires pour approfondir ses connaissances",
+        "Conseils pour la pratique"
+      ]
+    }
+  ]
+}

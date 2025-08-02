@@ -1,0 +1,122 @@
+{
+  "titre_formation": "Maîtrisez Python : De Débutant à Développeur",
+  "description": "Cette formation complète vous guidera pas à pas dans l'univers fascinant de la programmation Python.  Du niveau débutant jusqu'à des concepts plus avancés, vous apprendrez les fondamentaux, les structures de données, les fonctions, les modules et bien plus encore.  À la fin de cette formation, vous serez capable de concevoir et développer vos propres programmes Python.",
+  "objectifs": [
+    "Comprendre les concepts fondamentaux de la programmation Python.",
+    "Maîtriser les structures de données et les algorithmes de base.",
+    "Utiliser les fonctions et les modules pour développer des programmes efficaces.",
+    "Développer des applications Python simples et fonctionnelles."
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Bienvenue dans le monde de Python !",
+      "voix_off": "Bonjour à tous et bienvenue dans cette formation complète sur Python !  Python est un langage de programmation puissant, polyvalent et facile à apprendre, utilisé dans de nombreux domaines, du développement web à la science des données en passant par l'automatisation.  Au cours de cette formation, nous explorerons ensemble les bases de ce langage, de l'installation jusqu'à la création de vos propres programmes. Préparez-vous à un voyage passionnant dans le monde de la programmation ! Nous commencerons par l'installation de Python et de son IDE, puis aborderons les concepts de base comme les variables, les types de données et les opérateurs.",
+      "elements_visuels": "Logo Python, captures d'écran de l'installation de Python et d'un IDE (ex: PyCharm, VS Code), exemples de code simple (variables, types de données).",
+      "points_cles": [
+        "Installation de Python et d'un IDE.",
+        "Comprendre les variables et les types de données.",
+        "Utilisation des opérateurs arithmétiques et logiques."
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Les structures de contrôle :  if, elif, else",
+      "voix_off": "Maintenant que nous avons vu les bases, penchons-nous sur les structures de contrôle.  Ces structures permettent de contrôler le flux d'exécution de votre programme. Nous allons apprendre à utiliser les instructions conditionnelles 'if', 'elif' et 'else' pour exécuter du code seulement si certaines conditions sont remplies.  Nous verrons également comment utiliser les boucles 'for' et 'while' pour répéter des instructions.  La maîtrise de ces structures est essentielle pour créer des programmes dynamiques et réactifs.",
+      "elements_visuels": "Diagrammes de flux illustrant les instructions conditionnelles et les boucles, exemples de code avec des instructions 'if', 'elif', 'else', 'for' et 'while'.",
+      "points_cles": [
+        "Utilisation des instructions conditionnelles (if, elif, else).",
+        "Utilisation des boucles 'for' et 'while'.",
+        "Création de programmes logiques et conditionnels."
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Les Listes et les Dictionnaires : Structures de données",
+      "voix_off": "Python offre des structures de données puissantes pour organiser vos informations.  Nous allons explorer les listes et les dictionnaires. Les listes sont des séquences ordonnées d'éléments, tandis que les dictionnaires permettent de stocker des données sous forme de paires clé-valeur.  Nous verrons comment créer, manipuler et parcourir ces structures de données, ce qui est fondamental pour gérer efficacement les données dans vos programmes.",
+      "elements_visuels": "Représentations visuelles de listes et de dictionnaires, exemples de code pour créer, accéder et modifier des listes et des dictionnaires.",
+      "points_cles": [
+        "Création et manipulation de listes.",
+        "Création et manipulation de dictionnaires.",
+        "Parcours des listes et des dictionnaires."
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Les Fonctions : Modularité et Réutilisabilité",
+      "voix_off": "Pour améliorer la lisibilité et la réutilisabilité de votre code, nous allons apprendre à créer et à utiliser des fonctions.  Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique.  Nous verrons comment définir des fonctions, leur passer des arguments et retourner des valeurs.  L'utilisation de fonctions est essentielle pour organiser et structurer vos programmes de manière efficace.",
+      "elements_visuels": "Exemple de code illustrant la définition et l'appel de fonctions avec arguments et valeurs de retour.",
+      "points_cles": [
+        "Définition de fonctions.",
+        "Passage d'arguments à une fonction.",
+        "Retour de valeurs par une fonction."
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "Les Modules :  Exploitez la puissance de Python",
+      "voix_off": "Python dispose d'une vaste bibliothèque de modules qui offrent des fonctionnalités supplémentaires.  Nous allons explorer quelques modules importants, tels que 'math' pour les opérations mathématiques, 'random' pour la génération de nombres aléatoires, et 'datetime' pour la manipulation des dates et des heures.  L'utilisation de modules vous permet d'étendre les capacités de votre programme sans avoir à tout coder vous-même.",
+      "elements_visuels": "Liste des modules importants avec brève description, exemples de code utilisant les modules 'math', 'random', 'datetime'.",
+      "points_cles": [
+        "Importation et utilisation de modules.",
+        "Utilisation des modules 'math', 'random', 'datetime'.",
+        "Extension des fonctionnalités de vos programmes."
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Gestion des Exceptions : Traitement des erreurs",
+      "voix_off": "Dans le développement, les erreurs sont inévitables.  Nous allons apprendre à gérer les exceptions pour que vos programmes restent robustes et ne plantent pas en cas d'erreur.  Nous verrons comment utiliser les blocs 'try', 'except' et 'finally' pour intercepter et gérer les erreurs de manière élégante.",
+      "elements_visuels": "Exemples de code illustrant la gestion d'exceptions avec 'try', 'except', 'finally'.",
+      "points_cles": [
+        "Utilisation des blocs 'try', 'except', 'finally'.",
+        "Gestion des erreurs courantes.",
+        "Création de programmes plus robustes."
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Introduction à la programmation orientée objet (POO)",
+      "voix_off": "La programmation orientée objet est un paradigme de programmation puissant.  Nous allons introduire les concepts de base de la POO, tels que les classes, les objets, les méthodes et les attributs.  Nous verrons comment créer des classes et des objets pour modéliser des concepts du monde réel dans vos programmes.",
+      "elements_visuels": "Diagrammes de classes, exemples de code illustrant la création et l'utilisation de classes et d'objets.",
+      "points_cles": [
+        "Définition de classes et d'objets.",
+        "Création de méthodes et d'attributs.",
+        "Principes de base de la POO."
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Projet Pratique 1 : Un simple jeu",
+      "voix_off": "Mettons en pratique ce que nous avons appris !  Nous allons développer ensemble un simple jeu en Python.  Ce projet vous permettra de consolider vos connaissances et de voir comment les concepts appris peuvent être appliqués pour créer une application fonctionnelle.  Nous guiderons pas à pas à travers le processus de conception et de développement du jeu.",
+      "elements_visuels": "Capture d'écran du jeu en développement, étapes du code du jeu.",
+      "points_cles": [
+        "Application des concepts appris.",
+        "Développement d'une application fonctionnelle.",
+        "Résolution de problèmes pratiques."
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Projet Pratique 2 :  Automatisation d'une tâche",
+      "voix_off": "Dans ce deuxième projet, nous allons automatiser une tâche simple à l'aide de Python.  Cela vous permettra de découvrir la puissance de Python pour automatiser des tâches répétitives.  Nous explorerons des techniques d'automatisation spécifiques et vous apprendrez à optimiser vos scripts pour une meilleure efficacité.",
+      "elements_visuels": "Exemple de tâche à automatiser, script Python pour l'automatisation.",
+      "points_cles": [
+        "Automatisation de tâches répétitives.",
+        "Optimisation de scripts.",
+        "Amélioration de l'efficacité du travail."
+      ]
+    },
+    {
+      "numero": 10,
+      "titre": "Conclusion et Ressources Supplémentaires",
+      "voix_off": "Félicitations ! Vous avez terminé cette formation sur les bases de la programmation Python.  Vous avez acquis des connaissances solides pour commencer à développer vos propres programmes.  N'oubliez pas que la pratique est la clé du succès.  Continuez à coder, à expérimenter et à explorer les nombreuses ressources disponibles en ligne pour approfondir vos compétences.  Nous vous encourageons à consulter les liens et la documentation supplémentaires fournis pour poursuivre votre apprentissage et explorer des sujets plus avancés.",
+      "elements_visuels": "Liste de liens vers des ressources supplémentaires (documentation Python, tutoriels, forums),  images encourageantes.",
+      "points_cles": [
+        "Pratique régulière pour améliorer les compétences.",
+        "Exploration de ressources supplémentaires pour approfondir les connaissances.",
+        "Poursuite de l'apprentissage et développement de projets personnels."
+      ]
+    }
+  ]
+}

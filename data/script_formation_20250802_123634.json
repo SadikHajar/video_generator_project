@@ -1,0 +1,111 @@
+{
+  "titre_formation": "Maîtriser le Marketing Digital : De l'Initiation à la Stratégie Avancée",
+  "description": "Cette formation complète vous guidera à travers l'univers du marketing digital, des bases fondamentales aux stratégies avancées.  Vous apprendrez à élaborer et mettre en œuvre des campagnes efficaces sur les différents canaux digitaux, à analyser les résultats et à optimiser vos performances.  Que vous soyez débutant ou que vous cherchiez à perfectionner vos compétences, cette formation est faite pour vous.",
+  "objectifs": [
+    "Comprendre les fondamentaux du marketing digital et son écosystème.",
+    "Définir une stratégie marketing digitale efficace et cohérente.",
+    "Maîtriser les principaux outils et canaux du marketing digital.",
+    "Analyser les performances et optimiser les campagnes marketing."
+  ],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Bienvenue dans le Monde du Marketing Digital !",
+      "voix_off": "Bienvenue !  Dans cette formation, nous allons explorer le monde passionnant et en constante évolution du marketing digital.  Nous verrons comment les entreprises utilisent le numérique pour atteindre leurs clients, construire leur marque et générer des ventes.  Préparez-vous à découvrir les concepts clés, les stratégies efficaces et les outils performants qui vous permettront de réussir dans ce domaine.  Nous aborderons tout, du SEO au social media, en passant par le email marketing et la publicité en ligne.  Alors, installez-vous confortablement et embarquons pour ce voyage captivant !",
+      "elements_visuels": "Animation dynamique avec des icônes représentant les différents canaux digitaux (réseaux sociaux, moteurs de recherche, email, etc.), transition vers une image représentant un paysage numérique.",
+      "points_cles": [
+        "Définition du marketing digital",
+        "Importance du marketing digital dans le monde actuel",
+        "Aperçu des différents canaux digitaux"
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Les Fondamentaux du SEO : Optimiser votre Visibilité sur Google",
+      "voix_off": "Le référencement naturel, ou SEO, est crucial pour attirer du trafic organique vers votre site web.  Nous allons explorer les bases du SEO, notamment l'importance des mots clés, l'optimisation on-page (balises titre, méta-descriptions, contenu) et l'optimisation off-page (netlinking, backlinks).  Nous verrons comment analyser les performances de votre site grâce à des outils comme Google Search Console et comment améliorer votre positionnement dans les résultats de recherche.  N'oubliez pas que le SEO est un travail de longue haleine qui nécessite patience et persévérance.",
+      "elements_visuels": "Schéma expliquant les étapes du SEO, captures d'écran de Google Search Console, exemples de bonnes pratiques d'optimisation on-page.",
+      "points_cles": [
+        "Mots clés et recherche de mots clés",
+        "Optimisation on-page et off-page",
+        "Analyse des performances SEO"
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Le Social Media Marketing : Connecter avec votre Audience",
+      "voix_off": "Les réseaux sociaux sont devenus des plateformes incontournables pour interagir avec votre audience, construire votre communauté et promouvoir vos produits ou services.  Nous explorerons les stratégies spécifiques à chaque réseau (Facebook, Instagram, Twitter, LinkedIn, etc.),  l'importance du contenu engageant, la création d'une stratégie de contenu pertinente, l'analyse des performances et la publicité sur les réseaux sociaux.  Nous verrons comment adapter votre message à chaque plateforme pour maximiser votre impact.",
+      "elements_visuels": "Exemples de publications réussies sur différents réseaux sociaux,  interface des plateformes sociales, graphiques illustrant les statistiques d'engagement.",
+      "points_cles": [
+        "Stratégie de contenu pour chaque réseau social",
+        "Analyse des performances et indicateurs clés",
+        "Publicité sur les réseaux sociaux"
+      ]
+    },
+    {
+      "numero": 4,
+      "titre": "Email Marketing : Cultiver des Relations Client",
+      "voix_off": "L'email marketing reste un outil puissant pour nourrir vos relations clients, promouvoir vos offres et fidéliser votre audience.  Nous aborderons la création de campagnes d'emailing efficaces, la segmentation de votre liste de contacts, l'automatisation des emails (email marketing automation), l'analyse des taux d'ouverture et de clics, et les meilleures pratiques pour éviter le spam.  Nous verrons comment construire des emails engageants et personnalisés pour maximiser votre taux de conversion.",
+      "elements_visuels": "Exemples d'emails marketing efficaces, interface d'une plateforme d'email marketing (Mailchimp, Sendinblue, etc.), graphiques illustrant les taux d'ouverture et de clics.",
+      "points_cles": [
+        "Création de campagnes d'emailing",
+        "Segmentation et automatisation",
+        "Analyse des performances et optimisation"
+      ]
+    },
+    {
+      "numero": 5,
+      "titre": "La Publicité Digitale : Atteindre votre Public Cible",
+      "voix_off": "La publicité digitale offre des possibilités infinies pour atteindre votre public cible avec précision.  Nous explorerons les différents formats publicitaires (textes, images, vidéos), les plateformes publicitaires (Google Ads, Facebook Ads, etc.), le ciblage publicitaire (démographique, comportemental, géographique),  la création de campagnes publicitaires performantes, et l'analyse des résultats.  Nous verrons comment optimiser vos campagnes pour maximiser votre retour sur investissement (ROI).",
+      "elements_visuels": "Exemples de campagnes publicitaires réussies, interfaces des plateformes publicitaires, graphiques illustrant les résultats des campagnes.",
+      "points_cles": [
+        "Choix des plateformes publicitaires",
+        "Ciblage publicitaire et création de campagnes",
+        "Analyse des résultats et optimisation du ROI"
+      ]
+    },
+    {
+      "numero": 6,
+      "titre": "Analyse Web et Indicateurs Clés de Performance (KPI)",
+      "voix_off": "L'analyse des données est essentielle pour mesurer l'efficacité de vos stratégies marketing digitales.  Nous allons explorer les principaux indicateurs clés de performance (KPI), tels que le trafic web, le taux de conversion, le taux de rebond, le coût par acquisition (CPA), et le retour sur investissement (ROI).  Nous verrons comment utiliser des outils d'analyse web comme Google Analytics pour suivre vos performances, identifier les points faibles et optimiser vos campagnes.",
+      "elements_visuels": "Capture d'écran de Google Analytics, tableau de bord avec les principaux KPI, graphiques illustrant l'évolution des performances.",
+      "points_cles": [
+        "Définition et interprétation des KPI",
+        "Utilisation de Google Analytics",
+        "Analyse des données et prise de décision"
+      ]
+    },
+    {
+      "numero": 7,
+      "titre": "Stratégie Marketing Digitale Globale : Mise en Pratique",
+      "voix_off": "Maintenant que vous maîtrisez les bases, il est temps de mettre en pratique vos connaissances.  Nous allons élaborer une stratégie marketing digitale complète, en définissant vos objectifs, votre public cible, vos canaux de communication, votre budget, et votre calendrier.  Nous verrons comment intégrer toutes les techniques apprises pour créer une stratégie cohérente et efficace.  N'hésitez pas à poser vos questions !",
+      "elements_visuels": "Modèle de plan marketing digital, exemples de stratégies réussies, brainstorming visuel.",
+      "points_cles": [
+        "Définition des objectifs et du public cible",
+        "Choix des canaux et des outils",
+        "Élaboration d'un plan d'action"
+      ]
+    },
+    {
+      "numero": 8,
+      "titre": "Étude de Cas : Analyse de Campagnes Réelles",
+      "voix_off": "Pour illustrer les concepts vus précédemment, nous analyserons des exemples concrets de campagnes marketing digitales réussies et moins réussies.  Nous identifierons les points forts et les points faibles de chaque campagne, et nous tirerons des leçons pour améliorer vos propres stratégies.  Cela vous permettra de mieux comprendre comment appliquer les techniques apprises dans des situations réelles.",
+      "elements_visuels": "Présentation de plusieurs études de cas avec des analyses détaillées, graphiques et tableaux comparatifs.",
+      "points_cles": [
+        "Analyse de campagnes réussies",
+        "Identification des meilleures pratiques",
+        "Éviter les erreurs courantes"
+      ]
+    },
+    {
+      "numero": 9,
+      "titre": "Conclusion et Ressources Supplémentaires",
+      "voix_off": "Félicitations ! Vous avez maintenant une compréhension approfondie du marketing digital.  N'oubliez pas que ce domaine est en constante évolution, il est donc important de rester informé des dernières tendances et innovations.  Nous vous fournirons une liste de ressources supplémentaires, telles que des blogs, des livres, et des formations, pour vous aider à poursuivre votre apprentissage.  N'hésitez pas à mettre en pratique vos nouvelles compétences et à expérimenter différentes stratégies pour trouver ce qui fonctionne le mieux pour vous.",
+      "elements_visuels": "Liste des ressources supplémentaires (liens vers des sites web, livres, etc.), image de fin de formation avec un message encourageant.",
+      "points_cles": [
+        "Recapitulatif des points clés de la formation",
+        "Ressources supplémentaires pour approfondir ses connaissances",
+        "Encouragement à la mise en pratique et à l'expérimentation"
+      ]
+    }
+  ]
+}
