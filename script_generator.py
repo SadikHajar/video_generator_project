@@ -7,6 +7,8 @@ from fpdf import FPDF
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from create_video_from_script import create_video_from_script
+import re
+from langdetect import detect
 
 load_dotenv()
 
@@ -22,7 +24,49 @@ class ScriptGenerator:
         self.model = genai.GenerativeModel("gemini-1.5-flash")
 
     def generate_training_script(self, user_prompt):
-        system_prompt = """
+        # Détection de la langue de l'utilisateur
+        lang = detect(user_prompt)
+        print(f"🌐 Langue détectée: {lang}")
+
+        if lang == 'en':
+            system_prompt = """
+You are an expert in professional training content creation.
+Given a training request, generate a full and structured script.
+
+The script must contain a MINIMUM of 8-12 scenes for a complete and in-depth training. Each scene should include:
+- A catchy and descriptive title
+- A detailed voice-over script (180-250 words)
+- Specific suggestions for visual elements/images
+- 3-4 key takeaway points
+
+IMPORTANT: Create a COMPLETE training that covers the topic thoroughly. Don’t hesitate to generate 10, 12, or even 15 scenes if needed to explain the topic well.
+
+Recommended structure:
+1. Introduction and context
+2. Basics and fundamentals (2-3 scenes)
+3. Intermediate concepts (3-4 scenes)
+4. Advanced concepts (2-3 scenes)
+5. Practical applications (1-2 scenes)
+6. Conclusion and perspectives
+
+Respond ONLY with a valid JSON in this exact format:
+{
+  "titre_formation": "Full and catchy training title",
+  "description": "Detailed training description",
+  "objectifs": ["Objective 1", "Objective 2", "Objective 3", "Objective 4"],
+  "scenes": [
+    {
+      "numero": 1,
+      "titre": "Detailed scene title",
+      "voix_off": "Full and detailed voice-over text (180-250 words)",
+      "elements_visuels": "Precise description of visual elements",
+      "points_cles": ["Key point 1", "Key point 2", "Key point 3"]
+    }
+  ]
+}
+"""
+        else:
+            system_prompt = """
 Tu es un expert en création de contenu de formation professionnelle.
 À partir d'une demande de formation, tu dois générer un script complet et structuré.
 
