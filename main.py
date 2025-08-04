@@ -1,6 +1,7 @@
-
 from create_video_from_script import create_video_from_script
 from script_generator import ScriptGenerator
+from video_subtitles import add_subtitles_to_video  # Ta fonction d'ajout sous-titres importée
+
 def main():
     generator = ScriptGenerator()
     print("🎓 GÉNÉRATEUR DE SCRIPT DE FORMATION IA")
@@ -29,6 +30,7 @@ def main():
                 print("❌ Veuillez entrer une demande valide")
                 continue
 
+            # Générer le script JSON
             script = generator.generate_training_script(user_input)
             generator.display_script_summary(script)
 
@@ -52,9 +54,17 @@ def main():
             # Si JSON sauvegardé, on lance la création vidéo Synthesia
             if filename_json:
                 print("\n🚀 Lancement de la création vidéo sur Synthesia...")
-                video_url = create_video_from_script(filename_json)
-                if video_url:
-                    print(f"🎬 Vidéo créée avec succès : {video_url}")
+                video_file_or_url = create_video_from_script(filename_json)
+
+                if video_file_or_url:
+                    # Vérifier si on a un fichier vidéo local (.mp4)
+                    if video_file_or_url.endswith(".mp4"):
+                        print(f"🎬 Vidéo téléchargée localement : {video_file_or_url}")
+                        # Ajouter les sous-titres à la vidéo locale
+                        final_video = add_subtitles_to_video(video_file_or_url, script, output_path="video_finale_avec_sous_titres.mp4")
+                        print(f"✅ Vidéo finale avec sous-titres prête : {final_video}")
+                    else:
+                        print(f"🎬 Vidéo créée mais non téléchargée localement, URL : {video_file_or_url}")
                 else:
                     print("❌ La création vidéo a échoué.")
 
