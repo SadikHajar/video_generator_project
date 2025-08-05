@@ -1,6 +1,8 @@
 import os
 import json
 from datetime import datetime
+
+
 from dotenv import load_dotenv
 import google.generativeai as genai
 from fpdf import FPDF
@@ -9,6 +11,7 @@ from pptx.util import Inches, Pt
 from create_video_from_script import create_video_from_script
 import re
 from langdetect import detect
+from image_manager import ImageManager
 
 load_dotenv()
 
@@ -22,6 +25,8 @@ class ScriptGenerator:
 
         genai.configure(api_key=self.api_key)
         self.model = genai.GenerativeModel("gemini-1.5-flash")
+        # Initialiser le gestionnaire d'images
+        self.image_manager = ImageManager()
 
     def generate_training_script(self, user_prompt):
         # Détection de la langue de l'utilisateur
@@ -36,10 +41,10 @@ Given a training request, generate a full and structured script.
 The script must contain a MINIMUM of 8-12 scenes for a complete and in-depth training. Each scene should include:
 - A catchy and descriptive title
 - A detailed voice-over script (180-250 words)
-- Specific suggestions for visual elements/images
+- A descriptive keyword for visual elements (we will use this to search for relevant images automatically)
 - 3-4 key takeaway points
 
-IMPORTANT: Create a COMPLETE training that covers the topic thoroughly. Don’t hesitate to generate 10, 12, or even 15 scenes if needed to explain the topic well.
+IMPORTANT: For visual elements, provide ONLY descriptive keywords that describe the scene content (example: "artificial intelligence", "neural network", "programming code", "data analysis", etc.). Do NOT provide URLs - we will handle image retrieval automatically.
 
 Recommended structure:
 1. Introduction and context
@@ -59,7 +64,7 @@ Respond ONLY with a valid JSON in this exact format:
       "numero": 1,
       "titre": "Detailed scene title",
       "voix_off": "Full and detailed voice-over text (180-250 words)",
-      "elements_visuels": "Precise description of visual elements",
+      "elements_visuels": "descriptive keywords for image search",
       "points_cles": ["Key point 1", "Key point 2", "Key point 3"]
     }
   ]
@@ -73,10 +78,10 @@ Tu es un expert en création de contenu de formation professionnelle.
 Le script doit contenir MINIMUM 8-12 scènes pour une formation complète et approfondie. Chaque scène doit avoir :
 - Un titre accrocheur et descriptif
 - Un script de voix off détaillé (180-250 mots)
-- Des suggestions précises d'éléments visuels/images
+- Des mots-clés descriptifs pour les éléments visuels (nous utiliserons ceux-ci pour rechercher automatiquement des images pertinentes)
 - Des points clés à retenir (3-4 points par scène)
 
-IMPORTANT: Crée une formation COMPLÈTE qui couvre le sujet en profondeur. N'hésite pas à créer 10, 12 ou même 15 scènes si nécessaire pour bien expliquer le sujet.
+IMPORTANT: Pour les éléments visuels, fournis UNIQUEMENT des mots-clés descriptifs qui décrivent le contenu de la scène (exemple: "intelligence artificielle", "réseau de neurones", "code de programmation", "analyse de données", etc.). Ne fournis PAS d'URLs - nous nous occupons automatiquement de la récupération d'images.
 
 Structure recommandée:
 1. Introduction et contexte
@@ -96,7 +101,7 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
       "numero": 1,
       "titre": "Titre scène détaillé",
       "voix_off": "Texte voix off complet et détaillé (180-250 mots)",
-      "elements_visuels": "Description précise des éléments visuels",
+      "elements_visuels": "mots-clés descriptifs pour recherche d'image",
       "points_cles": ["Point clé 1", "Point clé 2", "Point clé 3"]
     }
   ]
@@ -132,9 +137,12 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
         try:
             script_data = json.loads(json_content)
         except json.JSONDecodeError as e:
-            print(f"❌ Erreur de parsing JSON: {e}")
+            print(f"❌  : {e}")
             print(f"🔍 Contenu à parser: {json_content[:200]}...")
             raise Exception(f"Erreur de parsing JSON: {e}")
+        
+        # Valider et corriger les URLs d'images avec le gestionnaire d'images
+        script_data = self.image_manager.validate_and_fix_image_urls(script_data)
 
         self._validate_script_structure(script_data)
         print("✅ Script généré avec succès!")
@@ -195,6 +203,7 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
         
         # Dernier recours : retourner le contenu tel quel
         return content
+    
 
     def _validate_script_structure(self, script_data):
         required_fields = ['titre_formation', 'description', 'scenes']
@@ -212,6 +221,9 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
             for field in ['numero', 'titre', 'voix_off', 'elements_visuels']:
                 if field not in scene:
                     raise ValueError(f"Scène {i+1} - champ manquant: {field}")
+              # Valider que elements_visuels est une URL valide
+            if not scene['elements_visuels'].startswith(('http://', 'https://')):
+                print(f"⚠️ Scène {i+1}: L'élément visuel ne semble pas être une URL valide")    
 
     def save_script_to_file(self, script_data, filename=None, folder="data"):
         if not os.path.exists(folder):
@@ -308,6 +320,7 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
             print(f"   🖼️  Visuels: {scene['elements_visuels'][:100]}...")
             if 'points_cles' in scene:
                 print(f"   🔑 Points clés: {', '.join(scene['points_cles'])}")
+               
 
     def json_to_ppt(self, script_data, folder="script"):
         if not os.path.exists(folder):
