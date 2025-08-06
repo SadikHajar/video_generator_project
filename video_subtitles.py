@@ -56,8 +56,14 @@ def add_subtitles_with_ffmpeg(video_path, srt_path, output_path):
     return output_path if result.returncode == 0 else None
 
 def add_subtitles_to_video(video_path, script_data, output_path="video_avec_sous_titres.mp4"):
-    if not os.path.exists(video_path) or not FFMPEG_AVAILABLE:
+    if not os.path.exists(video_path):
+        print(f"❌ Fichier vidéo introuvable: {video_path}")
         return video_path
+        
+    if not FFMPEG_AVAILABLE:
+        print("❌ FFmpeg non disponible, retour de la vidéo sans sous-titres")
+        return video_path
+    
     srt_file = create_srt_file(script_data, "temp_subtitles.srt")
     if srt_file:
         result = add_subtitles_with_ffmpeg(video_path, srt_file, output_path)

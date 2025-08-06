@@ -232,16 +232,49 @@ def create_video_from_script(json_file_path):
             
     except Exception as err:
         print(f"💥 Erreur lors de la création: {err}")
+ 
         return None
+def download_video_file(download_url, video_id):
+    """Télécharge la vidéo depuis l'URL fournie par Synthesia"""
+    try:
+        print("📥 Téléchargement de la vidéo en cours...")
+        response = requests.get(download_url, stream=True)
+        
+        if response.status_code == 200:
+            filename = f"video_{video_id}.mp4"
+            filepath = os.path.join(os.getcwd(), filename)
+            
+            # Télécharger avec une barre de progression basique
+            total_size = int(response.headers.get('content-length', 0))
+            downloaded = 0
+            
+            with open(filepath, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded += len(chunk)
+                        if total_size > 0:
+                            progress = (downloaded / total_size) * 100
+                            print(f"\r📥 Téléchargement: {progress:.1f}%", end="", flush=True)
+            
+            print(f"\n✅ Vidéo téléchargée: {filepath}")
+            return filepath
+        else:
+            print(f"❌ Erreur de téléchargement: {response.status_code}")
+            return None
+            
+    except Exception as e:
+        print(f"💥 Erreur lors du téléchargement: {e}")
+        return None  
 def wait_for_video_completion(video_id):
-    """Attend que la vidéo soit prête et récupère le lien de téléchargement"""
+    """Attend que la vidéo soit prête et télécharge le fichier"""
     headers = {
         "Authorization": f"{API_KEY}",
         "Content-Type": "application/json"
     }
     
     status_url = f"https://api.synthesia.io/v2/videos/{video_id}"
-    max_attempts = 180 # Maximum 5 minutes d'attente
+    max_attempts = 180 # Maximum 30 minutes d'attente
     
     print("⏳ Vérification du statut de la vidéo...")
     
@@ -258,7 +291,9 @@ def wait_for_video_completion(video_id):
                 if status == "complete":
                     download_url = video_info.get('download')
                     if download_url:
-                        return download_url
+                        # Télécharger la vidéo localement
+                        local_video_path = download_video_file(download_url, video_id)
+                        return local_video_path
                     else:
                         print("⚠️ Vidéo complète mais pas de lien de téléchargement")
                         return None
@@ -281,4 +316,4 @@ def wait_for_video_completion(video_id):
             return None
     
     print("⏰ Timeout: La vidéo prend plus de temps que prévu à être générée")
-    return None  
+    return None
