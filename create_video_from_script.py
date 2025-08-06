@@ -2,15 +2,74 @@ import os
 import json
 import time
 import requests
-import random
 from dotenv import load_dotenv
+import random
+
+
 
 load_dotenv()
 API_URL = "https://api.synthesia.io/v2/videos"
 API_KEY = os.getenv("SYNTHESIA_API_KEY")
 
+AVATAR_IDS = [
+    "anna_costume1_cameraA",
+    "james_costume1_cameraA",
+    "mike_costume1_cameraA"
+]
 
+# Choisir un avatar au hasard pour cette vidéo
+selected_avatar = random.choice(AVATAR_IDS)
+print(f"🎭 Avatar sélectionné aléatoirement : {selected_avatar}")
 
+def detect_language_and_create_intro(titre_formation, objectifs):
+    """Détecte la langue et crée l'introduction appropriée"""
+    
+    # ✅ Détecter la langue en analysant le titre et les objectifs
+    sample_text = titre_formation + " " + " ".join(objectifs[:2]) if objectifs else titre_formation
+    
+    # Simple détection basée sur des mots-clés
+    french_keywords = ['formation', 'cours', 'apprentissage', 'développement', 'compétences', 'savoir']
+    english_keywords = ['training', 'course', 'learning', 'development', 'skills', 'knowledge', 'understanding']
+    
+    sample_lower = sample_text.lower()
+    
+    # Compter les occurrences de mots-clés
+    french_score = sum(1 for word in french_keywords if word in sample_lower)
+    english_score = sum(1 for word in english_keywords if word in sample_lower)
+    
+    # Déterminer la langue
+    if english_score > french_score:
+        language = 'en'
+    else:
+        language = 'fr'  # Français par défaut
+    
+    # ✅ Templates d'introduction par langue
+    templates = {
+        'fr': {
+            'greeting': "Bonjour et bienvenue dans cette formation sur {titre}.",
+            'objectives_intro': " À la fin de cette formation, vous serez capable de :",
+            'closing': " Commençons sans plus attendre !",
+            'key_points_title': "Points clés :"
+        },
+        'en': {
+            'greeting': "Hello and welcome to this training on {titre}.",
+            'objectives_intro': " By the end of this training, you will be able to:",
+            'closing': " Let's get started!",
+            'key_points_title': "Key Points:"
+        }
+    }
+    
+    template = templates[language]
+    intro_text = template['greeting'].format(titre=titre_formation)
+    
+    if objectifs:
+        intro_text += template['objectives_intro']
+        for i, objectif in enumerate(objectifs, 1):
+            intro_text += f" {i}. {objectif}."
+        intro_text += template['closing']
+    
+    print(f"🌐 Langue détectée: {language.upper()}")
+    return intro_text, language
 
 def create_video_from_script(json_file_path):
     if not API_KEY:
@@ -21,41 +80,40 @@ def create_video_from_script(json_file_path):
 
     with open(json_file_path, 'r', encoding='utf-8') as f:
         script_data = json.load(f)
-   
-  
+    
+    
+
     clips = []
-    # 1. Ajouter un clip d'introduction avec les objectifs
-    objectifs = script_data.get('objectifs', [])
-    if objectifs:
-        # Créer le texte d'introduction avec les objectifs
-        intro_text = f"Bienvenue dans cette formation : {script_data.get('titre_formation', 'Formation IA')}.\n\n"
-        intro_text += f"{script_data.get('description', '')}\n\n"
-        intro_text += "Les objectifs de cette formation sont :\n"
-        
-        for i, objectif in enumerate(objectifs, 1):
-            intro_text += f"Objectif {i} : {objectif}\n"
-        
-        intro_text += "\nCommençons maintenant cette formation !"
-        
-        intro_clip = {
-            "scriptText": intro_text,
-            "avatar": "anna_costume1_cameraA",
-            "background": "off_white",
-            "avatarSettings": {
-                "horizontalAlign": "center",
-                "style": "rectangular", 
-                "scale": 1.0
-            }
+
+    titre_formation = script_data.get("titre_formation", "Formation IA")
+    objectifs = script_data.get("objectifs", [])
+    
+
+    # ✅ Utiliser la fonction de détection de langue au lieu du texte français codé en dur
+    intro_text, detected_language = detect_language_and_create_intro(titre_formation, objectifs)
+    intro_clip = {
+        "scriptText": intro_text,
+        "avatar": selected_avatar,
+        "background": "off_white",
+        "avatarSettings": {
+            "horizontalAlign": "center",
+            "style": "rectangular", 
+            "scale": 1.0
         }
-        clips.append(intro_clip)
-        print("✅ Clip d'introduction avec objectifs ajouté")
+    }
+    clips.append(intro_clip)
+
+    # ✅ Titre pour les points clés selon la langue
+    key_points_title = "Points clés :" if detected_language == 'fr' else "Key Points:"
 
     for scene in script_data.get('scenes', []):
         voix_off_content = scene.get('voix_off')
+        elements_visuels = scene.get('elements_visuels') 
+        points_cles = scene.get('points_cles', [])  # URL de l'image
         if voix_off_content and voix_off_content.strip():
             clip = {
                 "scriptText": voix_off_content.strip(),  # ✅ Directement la string, pas un objet
-                "avatar": "anna_costume1_cameraA",
+                "avatar": selected_avatar,
                 "background": "off_white",
                 "avatarSettings": {
                     "horizontalAlign": "center",
@@ -63,9 +121,60 @@ def create_video_from_script(json_file_path):
                     "scale": 1.0
                 }
             }
+
+            
+
+            # ✅ Ajouter l'image si elle existe
+            if elements_visuels and elements_visuels.strip():
+                clip["background"] = elements_visuels.strip()
+                print(f"🖼️ Scène {scene.get('numero', 'N/A')}: Image ajoutée - {elements_visuels}")
+            else:
+                clip["background"] = "off_white"  # Background par défaut
+                print(f"📄 Scène {scene.get('numero', 'N/A')}: Background par défaut")
             clips.append(clip)
         else:
             print(f"⚠️ Scène {scene.get('numero', 'N/A')} ignorée car la voix_off est vide.")
+        # ✅ Ajouter les points clés comme texte overlay (selon la documentation)
+            if points_cles and len(points_cles) > 0:
+                texts = []
+                
+                # Titre des points clés
+                title_text = {
+                    "text": key_points_title,
+                    "x": 50,
+                    "y": 100,
+                    "fontSize": 24,
+                    "fontWeight": "bold",
+                    "color": "#FFFFFF",
+                    "backgroundColor": "rgba(0, 100, 200, 0.8)",
+                    "padding": 10,
+                    "borderRadius": 5
+                }
+                texts.append(title_text)
+                
+                # Points clés individuels
+                for i, point in enumerate(points_cles):
+                    point_text = {
+                        "text": f"• {point}",
+                        "x": 50,
+                        "y": 150 + (i * 40),  # Espacement vertical de 40px
+                        "fontSize": 18,
+                        "color": "#FFFFFF",
+                        "backgroundColor": "rgba(25, 135, 84, 0.7)",
+                        "padding": 8,
+                        "borderRadius": 5,
+                        "maxWidth": 300
+                    }
+                    texts.append(point_text)
+                
+                clip["texts"] = texts
+                print(f"📋 Scène {scene.get('numero', 'N/A')}: {len(points_cles)} points clés ajoutés comme texte")
+            else:
+                print(f"📄 Scène {scene.get('numero', 'N/A')}: Pas de points clés")
+            
+            clips.append(clip)
+    else:
+        print(f"⚠️ Scène {scene.get('numero', 'N/A')} ignorée car la voix_off est vide.")
 
     if not clips:
         print("❌ Aucune scène valide avec voix_off trouvée.")
@@ -73,7 +182,7 @@ def create_video_from_script(json_file_path):
 
     payload = {
         "test": True,
-        "title": script_data.get("titre_formation", "Formation IA"),
+        "title": titre_formation,
         "description": script_data.get("description", ""),
         "visibility": "private",
         "input": clips
@@ -86,8 +195,18 @@ def create_video_from_script(json_file_path):
 
     print("📡 Envoi de la requête à Synthesia...")
     print(f"🔍 Nombre de clips: {len(clips)}")
+    points_utilisés = [len(clip.get('texts', [])) for clip in clips[1:]]  # Exclure l'intro
+    print(f"📋 Points clés par scène: {points_utilisés}")
    
-    # Debug payload
+    images_utilisees = [
+    clip['background'] if isinstance(clip.get('background'), str) and clip['background'].startswith("http") else "Aucune"
+    for clip in clips[1:]  # on saute l'intro
+]
+    
+    print(f"🖼️ Images utilisées dans les scènes :")
+    for i, img in enumerate(images_utilisees, start=1):
+        print(f"   - Scène {i}: {img}")
+    
     print(f"🔍 Sample clip format: {json.dumps(clips[0] if clips else {}, indent=2)}")
     
     try:
@@ -122,7 +241,7 @@ def wait_for_video_completion(video_id):
     }
     
     status_url = f"https://api.synthesia.io/v2/videos/{video_id}"
-    max_attempts = 30  # Maximum 5 minutes d'attente
+    max_attempts = 180 # Maximum 5 minutes d'attente
     
     print("⏳ Vérification du statut de la vidéo...")
     

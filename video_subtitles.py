@@ -1,88 +1,70 @@
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+import os
+import json
+import subprocess
 
-
-try:
-    from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-    MOVIEPY_AVAILABLE = True
-except ImportError:
-    MOVIEPY_AVAILABLE = False
-    print("⚠️ MoviePy non installé. Vidéo sans sous-titres.")
-def add_subtitles_to_video(video_path, script_data, output_path="video_avec_sous_titres.mp4"):
-    if not MOVIEPY_AVAILABLE:
-        print("❌ MoviePy non disponible. Retour de la vidéo originale.")
-        return video_path
-
+def check_ffmpeg():
     try:
-        print("📝 Ajout des sous-titres (sans ImageMagick)...")
-        video = VideoFileClip(video_path)
-        duration_total = video.duration
-        scenes = script_data.get('scenes', [])
-        scenes_avec_voix = [s for s in scenes if s.get('voix_off', '').strip()]
+        subprocess.run(['ffmpeg', '-version'], capture_output=True, check=True)
+        return True
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return False
 
-        if not scenes_avec_voix:
-            print("⚠️ Aucune scène avec voix_off trouvée")
-            video.close()
-            return video_path
+FFMPEG_AVAILABLE = check_ffmpeg()
 
-        duration_per_scene = duration_total / len(scenes_avec_voix)
-        subtitle_clips = []
+def format_time_srt(seconds):
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    secs = int(seconds % 60)
+    millisecs = int((seconds % 1) * 1000)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d},{millisecs:03d}"
 
-        for i, scene in enumerate(scenes_avec_voix):
+def create_srt_file(script_data, output_path="subtitles.srt"):
+    scenes = script_data.get('scenes', [])
+    scenes_avec_voix = [s for s in scenes if s.get('voix_off', '').strip()]
+    if not scenes_avec_voix:
+        return None
+
+    duration_per_scene = 10
+    srt_content = []
+    for i, scene in enumerate(scenes_avec_voix):
+        voix_off = scene.get('voix_off', '').strip()
+        if voix_off:
             start_time = i * duration_per_scene
-            voix_off_text = scene.get('voix_off', '').strip()
+            end_time = (i + 1) * duration_per_scene
+            start_srt = format_time_srt(start_time)
+            end_srt = format_time_srt(end_time)
+            srt_content.append(f"{i + 1}")
+            srt_content.append(f"{start_srt} --> {end_srt}")
+            srt_content.append(voix_off)
+            srt_content.append("")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(srt_content))
+    return output_path
 
-            if voix_off_text:
-                print(f"📝 Scène {i+1}: {voix_off_text[:50]}...")
-                try:
-                    subtitle = TextClip(
-                        txt=voix_off_text,
-                        fontsize=28,
-                        color='white'
-                    ).set_position(('center', video.h - 60))\
-                     .set_start(start_time)\
-                     .set_duration(duration_per_scene)
-                    subtitle_clips.append(subtitle)
-                    print(f"✅ Sous-titre ajouté pour scène {i+1}")
-                except Exception as e:
-                    print(f"⚠️ Erreur sous-titre scène {i+1}: {e}")
-                    try:
-                        subtitle = TextClip(voix_off_text)\
-                                 .set_position(('center', 'bottom'))\
-                                 .set_start(start_time)\
-                                 .set_duration(duration_per_scene)
-                        subtitle_clips.append(subtitle)
-                        print(f"✅ Sous-titre basique ajouté pour scène {i+1}")
-                    except Exception as e2:
-                        print(f"❌ Impossible d'ajouter sous-titre pour scène {i+1}: {e2}")
-                        continue
+def add_subtitles_with_ffmpeg(video_path, srt_path, output_path):
+    if not FFMPEG_AVAILABLE:
+        return None
+    cmd = [
+        'ffmpeg',
+        '-i', video_path,
+        '-vf', f"subtitles={srt_path}:force_style='Fontsize=12,PrimaryColour=&Hffffff,OutlineColour=&H000000,Outline=2'",
+        '-c:a', 'copy',
+        '-y',
+        output_path
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    return output_path if result.returncode == 0 else None
 
-        if subtitle_clips:
-            print(f"🎬 Composition de {len(subtitle_clips)} sous-titres...")
-            final_clips = [video] + subtitle_clips
-            final_video = CompositeVideoClip(final_clips)
-            print("💾 Sauvegarde de la vidéo finale...")
-            final_video.write_videofile(
-                output_path,
-                codec='libx264',
-                audio_codec='aac',
-                verbose=False,
-                logger=None,
-                temp_audiofile='temp-audio.m4a',
-                remove_temp=True
-            )
-            video.close()
-            final_video.close()
-            for clip in subtitle_clips:
-                clip.close()
-            print(f"✅ Vidéo avec sous-titres créée : {output_path}")
-            return output_path
-        else:
-            print("⚠️ Aucun sous-titre créé, retour vidéo originale")
-            video.close()
-            return video_path
-
-    except Exception as e:
-        print(f"❌ Erreur ajout sous-titres : {e}")
-        import traceback
-        traceback.print_exc()
+def add_subtitles_to_video(video_path, script_data, output_path="video_avec_sous_titres.mp4"):
+    if not os.path.exists(video_path) or not FFMPEG_AVAILABLE:
         return video_path
+    srt_file = create_srt_file(script_data, "temp_subtitles.srt")
+    if srt_file:
+        result = add_subtitles_with_ffmpeg(video_path, srt_file, output_path)
+        try:
+            os.remove(srt_file)
+        except:
+            pass
+        if result:
+            return result
+    return video_path
